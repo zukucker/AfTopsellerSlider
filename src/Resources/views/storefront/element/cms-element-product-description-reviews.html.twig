@@ -1,47 +1,48 @@
 {% sw_extends '@Storefront/storefront/element/cms-element-product-description-reviews.html.twig' %}
 {% block element_product_description_reviews %}
-    {% set topseller = page.extensions.af_topseller.elements %}
+    {% set topseller = page.extensions.af_topseller %}
     {% set config = {
-    'title': {
-    'value': 'Topseller'
-    },
-    'border': {
-    'value': false
-    },
-    'rotate': {
-    'value': false
-    },
-    'products': {
-    'value': topseller
-    },
-    'boxLayout': {
-    'value': 'standard'
-    },
-    'elMinWidth': {
-    'value': '300px'
-    },
-    'navigation': {
-    'value': true
-    },
-    'displayMode': {
-    'value': 'minimal'
-    },
-    'verticalAlign': {
-    'value': 'top'
-    },
+        'title': {
+            'value': 'Topseller'
+        },
+        'border': {
+            'value': false
+        },
+        'rotate': {
+            'value': false
+        },
+        'products': {
+            'value': topseller 
+        },
+        'boxLayout': {
+            'value': 'standard'
+        },
+        'elMinWidth': {
+            'value': '200px'
+        },
+        'navigation': {
+            'value': true
+        },
+        'displayMode': {
+            'value': 'standard'
+        },
+        'verticalAlign': {
+            'value': center
+        }
     } %}
+
     <div class="af-topseller-slider">
-        {% sw_include "@Storefront/storefront/element/cms-element-product-slider.html.twig" with {
-            sliderConfig: config,
-            element: {
-                'data': {
-                    'products': {
-                        elements: topseller
-                    }
-                },
-                type: 'product-slider'
-            }
-        } %}
+        {#{% block af_topseller_slider %}#}
+            {% sw_include "@Storefront/storefront/element/cms-element-product-slider.html.twig" with {
+                sliderConfig: config,
+                element: {
+                    'data': {
+                        'products': topseller 
+                    },
+                    type: 'product-slider'
+                }
+            } %}
+        {#{% endblock %}#}
     </div>
 
     {{ parent() }}

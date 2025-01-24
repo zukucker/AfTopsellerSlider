@@ -7,8 +7,8 @@
     <services>
 
         <service id="AfTopsellerSlider\Subscriber\FrontendSubscriber">
-            <argument type="service" id="product.repository"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="sales_channel.product.repository"/>
             <tag name="kernel.event_subscriber"/>
         </service>
 
