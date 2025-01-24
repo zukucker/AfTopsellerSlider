@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/shopware/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+<card>
+    <title>Slider Config</title>
+
+    <input-field type="int">
+        <name>sliderAmount</name>
+        <label>Anzahl der Produkte des Sliders</label>
+        <defaultValue>5</defaultValue>
+    </input-field>
+    <input-field type="single-select">
+        <name>sorting</name>
+        <label>Sortierung des Sliders</label>
+        <options>
+            <option>
+                <id>asc</id>
+                <name>ASCENDING</name>
+                <name lang="de-DE">Aufsteigend</name>
+            </option>
+            <option>
+                <id>desc</id>
+                <name>DESCENDING</name>
+                <name lang="de-DE">Absteigend</name>
+            </option>
+        </options>
+    </input-field>
+    </card>
+
+</config>

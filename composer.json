@@ -1,0 +1,33 @@
+{
+    "name": "af-topseller-slider/af-topseller-slider",
+    "description": "af-topseller-slider/af-topseller-slider",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "~6.6.0"
+    },
+    "authors":[
+        {
+            "name": "Alexander Fröhling",
+            "email": "alexander.froehling@googlemail.com"
+        }
+    ],
+    "extra": {
+        "shopware-plugin-class": "AfTopsellerSlider\\AfTopsellerSlider",
+        "label": {
+            "de-DE": "Topseller Slider",
+            "en-GB": "Topseller Slider"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "AfTopsellerSlider\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AfTopsellerSlider\\Tests\\": "tests/"
+        }
+    }
+}
