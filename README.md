@@ -21,6 +21,10 @@ bin/build-administration.sh
 
 ausführen.
 
+Bei Fragen oder Anregungen gerne via Twitter oder Shopware Forum:<br>
+[Shopware Forum - MrAle](https://forum.shopware.com/u/mrale/summary)<br>
+[Twitter](https://x.com/FroehlingA)<br>
+
 
 ![Screenshot 2025-01-26 135209](https://github.com/user-attachments/assets/b11be6a5-68b9-4cc5-bb94-d1b47794ad26)
 ![Screenshot 2025-01-26 135220](https://github.com/user-attachments/assets/e6c7a1d6-a588-4b61-9aa5-9a7c11740389)
