@@ -1,1 +1,1 @@
-import './module/sw-cms/blocks/commerce/topseller';
+import './module/sw-cms/blocks/commerce/topseller-slider';

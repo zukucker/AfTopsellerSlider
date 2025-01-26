@@ -2,11 +2,11 @@ import './component';
 import './preview';
 
 Shopware.Service('cmsService').registerCmsBlock({
-    name: 'af-topseller',
+    name: 'topseller-slider',
     category: 'commerce',
     label: 'Topseller Slider',
-    component: 'sw-cms-block-topseller',
-    previewComponent: 'sw-cms-preview-topseller',
+    component: 'sw-cms-block-topseller-slider',
+    previewComponent: 'sw-cms-preview-topseller-slider',
     defaultConfig: {
         marginBottom: '20px',
         marginTop: '20px',

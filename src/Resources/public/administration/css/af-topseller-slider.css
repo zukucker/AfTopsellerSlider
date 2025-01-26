@@ -1,2 +1,2 @@
-.sw-cms-block-topseller{background:#ff0}
-.sw-cms-preview-topseller{display:grid;grid-template-columns:1fr 1fr;grid-column-gap:20px;padding:15px}
+.sw-cms-block-topseller-slider{align-items:center;display:grid;grid-template-columns:20px 1fr 20px;grid-gap:5px;padding:15px}.sw-cms-block-topseller-slider img{margin:0;display:block;max-width:100%}.sw-cms-block-topseller-slider .sw-cms-block-topseller-slider__product-box{display:grid;grid-template-columns:1fr 1fr;grid-gap:0 15px}
+.sw-cms-preview-topseller-slider{align-items:center;display:grid;grid-template-columns:20px 1fr 20px;grid-gap:5px;padding:15px}.sw-cms-preview-topseller-slider img{margin:0;display:block;max-width:100%}.sw-cms-preview-topseller-slider .sw-cms-preview-topseller-slider__product-box{display:grid;grid-template-columns:1fr 1fr;grid-gap:0 15px}

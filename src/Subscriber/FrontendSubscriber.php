@@ -2,22 +2,24 @@
 
 namespace AfTopsellerSlider\Subscriber;
 
-use Shopware\Core\Content\Product\SalesChannel\SalesChannelProductEntity;
+use Shopware\Core\Content\Cms\Events\CmsPageLoadedEvent;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository;
-use Shopware\Core\System\SalesChannel\SalesChannelCollection;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
-use Shopware\Storefront\Page\Product\ProductPageLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 
 class FrontendSubscriber implements EventSubscriberInterface
 {
     private SystemConfigService $systemConfigService;
     private SalesChannelRepository $salesChannelRepository;
 
+    /**
+     * @param SystemConfigService $systemConfigService
+     * @param SalesChannelRepository $salesChannelRepository
+     *
+     */
     public function __construct(SystemConfigService $systemConfigService, SalesChannelRepository $salesChannelRepository){
         $this->systemConfigService = $systemConfigService;
         $this->salesChannelRepository = $salesChannelRepository;
@@ -25,13 +27,16 @@ class FrontendSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents(): array
     {
         return [
-            ProductPageLoadedEvent::class => 'onProductPageLoaded'
+            CmsPageLoadedEvent::class => 'onCmsPageLoaded'
         ];
     }
 
-    public function onProductPageLoaded(ProductPageLoadedEvent $event)
+    public function onCmsPageLoaded(CmsPageLoadedEvent $event) : void
     {
-        $page = $event->getPage();
+        //dump($event);
+        $pageResult = current($event->getResult()->getElements());
+        //dump($pageResult);
+        //die();
         $context = $event->getContext();
 
         $salesChannelContext = $event->getSalesChannelContext(); 
@@ -56,6 +61,6 @@ class FrontendSubscriber implements EventSubscriberInterface
             $criteria->setLimit(5);
         }
         $result = $this->salesChannelRepository->search($criteria, $salesChannelContext)->getEntities();
-        $page->addExtension("af_topseller", $result);
+        $pageResult->addExtension("af_topseller", $result);
     }
 }
