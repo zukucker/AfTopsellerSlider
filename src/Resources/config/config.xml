@@ -11,6 +11,11 @@
         <label>Anzahl der Produkte des Sliders</label>
         <defaultValue>5</defaultValue>
     </input-field>
+    <input-field type="int">
+        <name>salesAmount</name>
+        <label>Verkäufe > X</label>
+        <defaultValue>5</defaultValue>
+    </input-field>
     <input-field type="single-select">
         <name>sorting</name>
         <label>Sortierung des Sliders</label>

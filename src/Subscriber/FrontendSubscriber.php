@@ -5,6 +5,7 @@ namespace AfTopsellerSlider\Subscriber;
 use Shopware\Core\Content\Cms\Events\CmsPageLoadedEvent;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\RangeFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Sorting\FieldSorting;
 use Shopware\Core\System\SalesChannel\Entity\SalesChannelRepository;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
@@ -33,16 +34,14 @@ class FrontendSubscriber implements EventSubscriberInterface
 
     public function onCmsPageLoaded(CmsPageLoadedEvent $event) : void
     {
-        //dump($event);
         $pageResult = current($event->getResult()->getElements());
-        //dump($pageResult);
-        //die();
         $context = $event->getContext();
 
         $salesChannelContext = $event->getSalesChannelContext(); 
         $salesChannelId = $salesChannelContext->getSalesChannel()->getId();
 
         $sliderAmount = $this->systemConfigService->get('AfTopsellerSlider.config.sliderAmount', $salesChannelId);
+        $salesAmount= $this->systemConfigService->get('AfTopsellerSlider.config.salesAmount', $salesChannelId);
         $sorting = $this->systemConfigService->get('AfTopsellerSlider.config.sorting', $salesChannelId);
 
         $criteria = new Criteria();
@@ -53,6 +52,11 @@ class FrontendSubscriber implements EventSubscriberInterface
             $criteria->addSorting(new FieldSorting('sales', FieldSorting::ASCENDING));
         }else{
             $criteria->addSorting(new FieldSorting('sales', FieldSorting::DESCENDING));
+        }
+        if($salesAmount > 0){
+            $criteria->addFilter(new RangeFilter('sales', [ 
+                RangeFilter::GTE => $salesAmount
+            ]));
         }
 
         if($sliderAmount != 5){
