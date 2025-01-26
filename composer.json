@@ -1,6 +1,6 @@
 {
     "name": "af-topseller-slider/af-topseller-slider",
-    "description": "af-topseller-slider/af-topseller-slider",
+    "description": "Topseller Slider Cms Element",
     "type": "shopware-platform-plugin",
     "version": "1.0.0",
     "license": "MIT",
